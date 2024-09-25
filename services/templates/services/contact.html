@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'services/style.css' %}">
+    <title>Contact Us</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <nav>
+                <a href="{% url 'homepage' %}">Home</a>
+                <a href="{% url 'services' %}">Services</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have a question or need a quote? Fill out the form below and we'll get back to you shortly.</p>
+
+            <form method="post" class="contact-form">
+                {% csrf_token %} 
+
+                <div class="form-group">
+                    {{ form.name }} {{ form.email }}
+                </div>
+
+                <div class="form-group">
+{{ form.phone }}
+                </div>
+
+                <div class="form-group">{{ form.service_type }}
+                </div>
+
+                <div class{{ form.description }}
+                </div>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Didintle Electrical Maintenance Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

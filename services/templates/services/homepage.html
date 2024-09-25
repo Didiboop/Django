@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'services/style.css' %}">
+    <title>Electrician Maintenance Services</title>
+</head>
+<body>
+
+    <header> 
+        <div class="container">
+            <h1>Welcome to Didintle Electrical Maintenance Services</h1>
+            <nav>
+                <a href="{% url 'homepage' %}">Home</a>
+                <a href="{% url 'services' %}">Services</a> 
+                <a href="{% url 'contact' %}">Contact Us</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>  
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Reliable and Safe Electrical Solutions</h2>
+            <p>We provide expert electrical services for your home or business.</p>
+            <a href="{% url 'contact' %}" class="btn">Get a Quote</a>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a team of experienced and licensed electricians dedicated to providing top-quality service. We prioritize safety and customer satisfaction.</p>
+        </div>
+    </section>
+
+    <section class="services-overview">
+        <div class="container">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Residential Electrical Repairs and Installations</li>
+                <li>Commercial Electrical Maintenance</li>
+                <li>Industrial Electrical Systems</li>
+                </ul>
+            <a href="{% url 'services' %}" class="btn">View All Services</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Didintle Electrical Maintenance Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
