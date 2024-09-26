@@ -9,19 +9,19 @@ import os
 import sys
 import django
 
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../'))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'task.settings'
 django.setup()
 
-project = 'site'
-copyright = '2024, Didi'
-author = 'Didi'
+project = 'task'
+copyright = '2024, didi'
+author = 'didi'
 release = '00.00.01'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
