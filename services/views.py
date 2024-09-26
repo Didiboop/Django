@@ -9,8 +9,10 @@ from django.contrib.auth import login, logout as auth_logout
 @login_required
 def contact(request):
     """
-    Handle service requests submitted via the contact form.
-    Displays a success message and redirects to the same page if the form is valid.
+    Handles service requests submitted via the contact form.
+
+    Displays a success message and redirects to the same page
+    if the form is valid.
     """
     if request.method == 'POST':
         form = ServiceRequestForm(request.POST)
@@ -25,19 +27,20 @@ def contact(request):
 
 def homepage(request):
     """
-    Render the homepage template.
+    Renders the homepage template.
     """
     return render(request, 'services/homepage.html')
 
 def services(request):
     """
-    Render the services template.
+    Renders the services template.
     """
     return render(request, 'services/services.html')
 
 def register(request):
     """
-    Handle user registration using the UserCreationForm.
+    Handles user registration using the UserCreationForm.
+
     Logs the user in and redirects to the homepage upon successful registration.
     """
     if request.method == 'POST':
@@ -52,9 +55,9 @@ def register(request):
 
     return render(request, 'services/register.html', {'form': form})
 
-def custom_logout(request):  # Renamed function
+def custom_logout(request):
     """
-    Log out the user and redirect to the homepage with a success message.
+    Logs out the user and redirects to the homepage with a success message.
     """
     auth_logout(request)  # Call the built-in logout function
     messages.success(request, "You have been logged out!")
