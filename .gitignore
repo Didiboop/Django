@@ -1,10 +1,56 @@
-__pycache__/
+# .gitignore
+
+# Python
 *.pyc
+__pycache__/
 *.pyo
-.env
-.venv/
-env/
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+*.manifest
+*.spec
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Virtual Environments
 venv/
-*.db
-*.sqlite3
- 
+env/
+ENV/
+*.env
+*.venv
+.Python
+
+# Distribution/Packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Sphinx documentation
+docs/_build/
+
+# Editor specific
+.vscode/
+.idea/
+*.swp
