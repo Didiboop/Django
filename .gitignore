@@ -47,9 +47,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Sphinx documentation
-docs/_build/
-
 # Editor specific
 .vscode/
 .idea/
