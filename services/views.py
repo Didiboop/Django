@@ -11,10 +11,6 @@ def contact(request):
     """
     Handles service requests submitted via the contact form.
 
-<<<<<<< HEAD
-    Displays a success message and redirects to the same page
-    if the form is valid.
-=======
     If the form is valid, it saves the service request, displays a success message, 
     and redirects the user to the same page.
 
@@ -28,7 +24,6 @@ def contact(request):
     HttpResponse
         Renders the 'contact' page with the form context.
         If the request method is POST and the form is valid, redirects to 'contact'.
->>>>>>> docs
     """
     if request.method == 'POST':
         form = ServiceRequestForm(request.POST)
@@ -44,8 +39,6 @@ def contact(request):
 def homepage(request):
     """
     Renders the homepage template.
-<<<<<<< HEAD
-=======
 
     Parameters
     ----------
@@ -56,15 +49,12 @@ def homepage(request):
     -------
     HttpResponse
         Renders the 'homepage' template.
->>>>>>> docs
     """
     return render(request, 'services/homepage.html')
 
 def services(request):
     """
     Renders the services template.
-<<<<<<< HEAD
-=======
 
     Parameters
     ----------
@@ -75,7 +65,6 @@ def services(request):
     -------
     HttpResponse
         Renders the 'services' template.
->>>>>>> docs
     """
     return render(request, 'services/services.html')
 
@@ -83,9 +72,6 @@ def register(request):
     """
     Handles user registration using the UserCreationForm.
 
-<<<<<<< HEAD
-    Logs the user in and redirects to the homepage upon successful registration.
-=======
     If the form is valid, the user is registered and logged in, 
     and then redirected to the homepage.
 
@@ -99,7 +85,6 @@ def register(request):
     HttpResponse
         Renders the 'register' template with the form context.
         If the request method is POST and the form is valid, redirects to 'homepage'.
->>>>>>> docs
     """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -116,8 +101,6 @@ def register(request):
 def custom_logout(request):
     """
     Logs out the user and redirects to the homepage with a success message.
-<<<<<<< HEAD
-=======
 
     Parameters
     ----------
@@ -128,7 +111,6 @@ def custom_logout(request):
     -------
     HttpResponse
         Redirects to the 'homepage' after logging out the user.
->>>>>>> docs
     """
     auth_logout(request)
     messages.success(request, "You have been logged out!")
