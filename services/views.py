@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import ServiceRequestForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout as auth_logout
 
 @login_required
@@ -11,15 +11,31 @@ def contact(request):
     """
     Handles service requests submitted via the contact form.
 
+<<<<<<< HEAD
     Displays a success message and redirects to the same page
     if the form is valid.
+=======
+    If the form is valid, it saves the service request, displays a success message, 
+    and redirects the user to the same page.
+
+    Parameters
+    ----------
+    request : HttpRequest
+        The HTTP request object containing metadata about the request.
+
+    Returns
+    -------
+    HttpResponse
+        Renders the 'contact' page with the form context.
+        If the request method is POST and the form is valid, redirects to 'contact'.
+>>>>>>> docs
     """
     if request.method == 'POST':
         form = ServiceRequestForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your service request has been submitted. We will contact you soon!')
-            return redirect('contact')  # Redirect to the same page to clear the form and show the success message
+            return redirect('contact')
     else:
         form = ServiceRequestForm()
 
@@ -28,12 +44,38 @@ def contact(request):
 def homepage(request):
     """
     Renders the homepage template.
+<<<<<<< HEAD
+=======
+
+    Parameters
+    ----------
+    request : HttpRequest
+        The HTTP request object containing metadata about the request.
+
+    Returns
+    -------
+    HttpResponse
+        Renders the 'homepage' template.
+>>>>>>> docs
     """
     return render(request, 'services/homepage.html')
 
 def services(request):
     """
     Renders the services template.
+<<<<<<< HEAD
+=======
+
+    Parameters
+    ----------
+    request : HttpRequest
+        The HTTP request object containing metadata about the request.
+
+    Returns
+    -------
+    HttpResponse
+        Renders the 'services' template.
+>>>>>>> docs
     """
     return render(request, 'services/services.html')
 
@@ -41,15 +83,31 @@ def register(request):
     """
     Handles user registration using the UserCreationForm.
 
+<<<<<<< HEAD
     Logs the user in and redirects to the homepage upon successful registration.
+=======
+    If the form is valid, the user is registered and logged in, 
+    and then redirected to the homepage.
+
+    Parameters
+    ----------
+    request : HttpRequest
+        The HTTP request object containing metadata about the request.
+
+    Returns
+    -------
+    HttpResponse
+        Renders the 'register' template with the form context.
+        If the request method is POST and the form is valid, redirects to 'homepage'.
+>>>>>>> docs
     """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Log the user in immediately after registration
+            login(request, user)
             messages.success(request, 'Registration successful. You are now logged in!')
-            return redirect('homepage')  # Redirect to homepage after successful registration
+            return redirect('homepage')
     else:
         form = UserCreationForm()
 
@@ -58,13 +116,31 @@ def register(request):
 def custom_logout(request):
     """
     Logs out the user and redirects to the homepage with a success message.
+<<<<<<< HEAD
+=======
+
+    Parameters
+    ----------
+    request : HttpRequest
+        The HTTP request object containing metadata about the request.
+
+    Returns
+    -------
+    HttpResponse
+        Redirects to the 'homepage' after logging out the user.
+>>>>>>> docs
     """
-    auth_logout(request)  # Call the built-in logout function
+    auth_logout(request)
     messages.success(request, "You have been logged out!")
     return redirect('homepage')
 
 class CustomLoginView(LoginView):
     """
     Custom login view that uses a specific login template.
+
+    Attributes
+    ----------
+    template_name : str
+        The path to the template used for rendering the login page.
     """
     template_name = 'services/login.html'
