@@ -34,7 +34,6 @@ LOGIN_REDIRECT_URL = 'homepage'
 # Application definition
 
 INSTALLED_APPS = [
-    'docs',
     'services',
     'django.contrib.admin',
     'django.contrib.auth',

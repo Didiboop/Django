@@ -24,20 +24,31 @@
             <p>Have a question or need a quote? Fill out the form below and we'll get back to you shortly.</p>
 
             <form method="post" class="contact-form">
-                {% csrf_token %} 
+                {% csrf_token %}
 
                 <div class="form-group">
-                    {{ form.name }} {{ form.email }}
+                    <label for="id_name">Name</label>
+                    {{ form.name }}
                 </div>
 
                 <div class="form-group">
-{{ form.phone }}
+                    <label for="id_email">Email</label>
+                    {{ form.email }}
                 </div>
 
-                <div class="form-group">{{ form.service_type }}
+                <div class="form-group">
+                    <label for="id_phone">Phone</label>
+                    {{ form.phone }}
                 </div>
 
-                <div class{{ form.description }}
+                <div class="form-group">
+                    <label for="id_service_type">Service Type</label>
+                    {{ form.service_type }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_description">Description</label>
+                    {{ form.description }}
                 </div>
 
                 <button type="submit" class="btn">Submit</button>
